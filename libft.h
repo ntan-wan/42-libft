@@ -51,4 +51,10 @@ char	*ft_strdup(const char *str);
 
 char	*ft_strrchr(const char *str, int c);
 
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+/*************************************************************************/
+
+char 	*ft_substr(char const *s, unsigned int start, size_t len);
+
 #endif
