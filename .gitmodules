@@ -1,0 +1,3 @@
+[submodule "libftTester/tester1"]
+	path = libftTester/tester1
+	url = https://github.com/wangwang190/42-libft
