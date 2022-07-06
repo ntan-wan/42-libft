@@ -17,7 +17,7 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 		if (haystack[i] == needle[j])
 		{
 			k = 0;
-			while (needle[j])
+			while (needle[j] && (i + k < len))
 			{
 				if (haystack[i + k] != needle[j])
 					break;
