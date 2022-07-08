@@ -2,24 +2,27 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	c;
+	char	c;
 	long	num_long;
 
 	c = 0;
-	num_long = n;
 	if (n < 0)
 	{
-		num_long = -num_long;
 		write(fd, "-", 1);
+		num_long = n;
+		num_long = -num_long;
 	}
-	if (num_long >= 0 && num_long <= 9)
+	else
+		num_long = n;
+	if (num_long < 10)
 	{
-		c = n + '0';
+		c = num_long + '0';
 		write(fd, &c, 1);
 	}
 	else
 	{
 		ft_putnbr_fd(num_long / 10, fd);
-		ft_putnbr_fd(num_long % 10, fd); 
+		c = (num_long % 10) + '0';
+		write(fd, &c, 1);
 	}
 }
