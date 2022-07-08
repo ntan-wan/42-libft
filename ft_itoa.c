@@ -31,22 +31,20 @@ int	count_digit(long number)
 	return (digit_sum);
 }
 
-char	*mem_alloc(char *ptr, long number_long, int negative, int digit)
+char	*mem_alloc(char *ptr, long number_long, int digit)
 {
 	if (number_long == 0)
 		ptr = ft_strdup("0");
 	else if (number_long != 0)
-		ptr = (char *)malloc(sizeof(char) * (negative + digit + 1));
-	else
-		ptr = NULL;
+		ptr = (char *)malloc(sizeof(char) * (digit + 1));
 	return (ptr);
 }
 
 char *ft_itoa(int n)
 {
 	long 	number_long;
-	int	negative;
 	int	digit;
+	int	negative;
 	char 	*result;
 	long	remain;
 
@@ -54,7 +52,9 @@ char *ft_itoa(int n)
 	number_long = n;
 	digit = count_digit(number_long);
 	negative = is_negative(n, &number_long);
-	result = mem_alloc(result, number_long, negative, digit);
+	result = mem_alloc(result, number_long, digit);
+	if (!result)
+		return (NULL);
 	if (number_long != 0)
 	{
 		result[digit] = '\0';

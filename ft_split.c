@@ -52,6 +52,8 @@ char	**ft_split(char const *s, char c)
 	
 	i = 0;
 	j = 0;
+	if (!s)
+		return(NULL);
 	words = count_words(s, c);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!result)
