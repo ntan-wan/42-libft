@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 12:43:21 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/07/09 21:37:24 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:13:37 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
-	(del)(lst->content);
+	(*del)(lst->content);
 	free(lst);
 }

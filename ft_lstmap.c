@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 13:54:12 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/07/09 22:21:19 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:25:59 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_list;
-	t_list *save;
+	t_list	*new_list;
+	t_list	*save;
 
 	if (!lst || !f)
-		return (0);
+		return (NULL);
 	new_list = ft_lstnew(f(lst->content));
 	if (!new_list)
-		return (0);
+		return (NULL);
 	save = new_list;
 	lst = lst->next;
 	while (lst)
