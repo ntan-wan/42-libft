@@ -1,34 +1,82 @@
+SRCS = ft_memset.c		\
+		ft_bzero.c		\
+		ft_memcpy.c		\
+		ft_memmove.c 	\
+		ft_memchr.c		\
+		ft_memcmp.c		\
+		ft_strlen.c		\
+		ft_isalpha.c 	\
+		ft_isdigit.c		\
+		ft_isalnum.c		\
+		ft_isascii.c		\
+		ft_isprint.c		\
+		ft_toupper.c		\
+		ft_tolower.c		\
+		ft_strchr.c		\
+		ft_strrchr.c		\
+		ft_strncmp.c		\
+		ft_strlcpy.c		\
+		ft_strlcat.c		\
+		ft_strnstr.c		\
+		ft_atoi.c		\
+		ft_calloc.c		\
+		ft_strdup.c		\
+		ft_substr.c		\
+		ft_strjoin.c 	\
+		ft_strtrim.c		\
+		ft_split.c		\
+		ft_itoa.c		\
+		ft_strmapi.c		\
+		ft_putchar_fd.c	\
+		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
+		ft_putnbr_fd.c \
+		ft_striteri.c
+
+SRCSB =	ft_lstnew.c			\
+		ft_lstadd_front.c	\
+		ft_lstsize.c		\
+		ft_lstlast.c		\
+		ft_lstadd_back.c	\
+		ft_lstclear.c		\
+		ft_lstdelone.c		\
+		ft_lstiter.c		\
+		ft_lstmap.c			\
+		$(SRCS)
+
 NAME = libft.a
 
-CC  = gcc
+OBJS_DIR = objs/
+OBJS = $(SRCS:.c=.o)
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
-CFLAGS = -Wall -Wextra -Werror
+OBJSB = $(SRCSB:.c=.o)
+OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-SRCS = $(wildcard *.c)
+CC = gcc
 
-OBJS = $(patsubst %.c, %.o, $(SRCS))
+CC_FLAGS = -Wall -Wextra 
 
-OBJS_PREFIXED = $(addprefix $(OBJS_DIR)/, $(OBJS))
+$(OBJS_DIR)%.o : %.c libft.h
+	@mkdir -p $(OBJS_DIR)
+	@echo "Compiling: $<"
+	@clang $(CC_FLAGS) -c $< -o $@
 
-HEADER_DIR = .
+$(NAME): $(OBJECTS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@echo "Libft Done !"
 
-OBJS_DIR = objs
+all: $(NAME)
 
-all : $(NAME)
-
-$(NAME) : objs
-	ar rcs $(NAME) $(OBJS_PREFIXED)
-
-%.o : %.c
-	mkdir -p $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c -I$(HEADER_DIR)/ $< -o $(OBJS_DIR)/$@
-
-objs : $(OBJS)
-
-clean :
+clean:
 	rm -rf $(OBJS_DIR)
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
+
+bonus: $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@echo "Libft Bonus Done !"
+

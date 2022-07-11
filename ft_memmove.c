@@ -8,9 +8,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	d = (char *)dst;
 	s = (char *)src;
-	if (!dst || !src)
-		return (NULL);
-	else if (dst == src)
+	if (dst == src)
 		return (dst);
 	else if (s < d)
 	{

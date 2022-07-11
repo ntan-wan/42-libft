@@ -2,13 +2,15 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
-
-	ptr = malloc(count * size);
+	void	*rtn;
+	
+	//if (size == 0)
+	//	return (rtn);
 	if (count == SIZE_MAX || size == SIZE_MAX)
 		return (NULL);
-	if (!ptr)
+	rtn = malloc(count * size);
+	if (!rtn)
 		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	ft_bzero(rtn, count * size);
+	return (rtn);
 }
