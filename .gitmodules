@@ -1,0 +1,3 @@
+[submodule "tester2"]
+	path = tester2
+	url = https://github.com/alelievr/libft-unit-test
