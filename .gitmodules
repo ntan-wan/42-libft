@@ -4,3 +4,6 @@
 [submodule "tester3"]
 	path = tester3
 	url = https://github.com/jtoty/Libftest
+[submodule "tester1"]
+	path = tester1
+	url = https://github.com/Tripouille/libftTester
