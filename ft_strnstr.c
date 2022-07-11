@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:35:59 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/07/11 15:43:03 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:24:21 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 	size_t	k;
-	char	*hay;
 
-	hay = (char *)haystack;
 	i = -1;
 	if (!needle[0])
-		return (hay);
+		return ((char *)haystack);
 	while (haystack[++i] && i < len)
 	{
 		j = 0;
@@ -31,11 +29,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			k = 0;
 			while (needle[j] && (i + k < len))
 			{
-				if (haystack[i + k++] != needle[j++])
+				if (haystack[i + k++] != needle[j])
 					break ;
+				j++;
 			}
 			if (needle[j] == '\0')
-				return (hay + i);
+				return ((char *)haystack + i);
 		}
 	}
 	return (NULL);
