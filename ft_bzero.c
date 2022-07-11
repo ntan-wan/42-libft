@@ -7,8 +7,6 @@ void	ft_bzero(void *s, size_t n)
 
 	ptr = (unsigned char *)s;
 	i = 0;
-	if (!ptr)
-		return;
 	while (i < n)
 	{
 		*ptr++ = 0;
