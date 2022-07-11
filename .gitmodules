@@ -1,3 +1,6 @@
 [submodule "tester2"]
 	path = tester2
 	url = https://github.com/alelievr/libft-unit-test
+[submodule "tester3"]
+	path = tester3
+	url = https://github.com/alelievr/libft-unit-test
