@@ -55,7 +55,7 @@ OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
 CC = gcc
 
-CC_FLAGS = -Wall -Wextra 
+CC_FLAGS = -Wall -Wextra -Werror 
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
