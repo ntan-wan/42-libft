@@ -1,9 +1,3 @@
-[submodule "tester2"]
-	path = tester2
-	url = https://github.com/alelievr/libft-unit-test
-[submodule "tester3"]
-	path = tester3
-	url = https://github.com/jtoty/Libftest
-[submodule "tester1"]
-	path = tester1
+[submodule "libftTester/tester1"]
+	path = libftTester/tester1
 	url = https://github.com/Tripouille/libftTester
