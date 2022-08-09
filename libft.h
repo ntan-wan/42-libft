@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:08:13 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/07/11 16:12:15 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/08/09 21:32:58 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/**********************************************************************/
+
+int	ft_printf(const char *str, ...);
+
+char	*get_next_line(int fd);
 
 #endif
