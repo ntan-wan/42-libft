@@ -31,7 +31,9 @@ SRCS = ft_memset.c		\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c \
-		ft_striteri.c
+		ft_striteri.c  \
+		get_next_line_bonus.c \
+		get_next_line_utils_bonus.c 
 
 SRCSB =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
@@ -66,6 +68,7 @@ $(OBJS_DIR)%.o : %.c libft.h
 
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
+	@make -C ./ft_printf
 	@echo "Libft Done !"
 
 all: $(NAME)
@@ -75,6 +78,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	@make fclean -C ./ft_printf
 
 re: fclean all
 
