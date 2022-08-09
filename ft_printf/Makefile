@@ -64,6 +64,3 @@ fclean : clean
 	@echo "\033[32mcleaning all done!"
 
 re : fclean all
-
-test :
-	$(CC) $(CCFLAGS) main.c $(NAME)

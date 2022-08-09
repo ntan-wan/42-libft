@@ -69,6 +69,7 @@ $(OBJS_DIR)%.o : %.c libft.h
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
 	@make -C ./ft_printf
+	@cp ./ft_printf/libftprintf.a ./libft.a
 	@echo "Libft Done !"
 
 all: $(NAME)
@@ -84,4 +85,6 @@ re: fclean all
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@make -C ./ft_printf
+	@cp ./ft_printf/libftprintf.a ./libft.a
 	@echo "Libft Bonus Done !"
