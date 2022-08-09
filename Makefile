@@ -6,32 +6,32 @@ SRCS = ft_memset.c		\
 		ft_memcmp.c		\
 		ft_strlen.c		\
 		ft_isalpha.c 	\
-		ft_isdigit.c		\
-		ft_isalnum.c		\
-		ft_isascii.c		\
-		ft_isprint.c		\
-		ft_toupper.c		\
-		ft_tolower.c		\
+		ft_isdigit.c	\
+		ft_isalnum.c	\
+		ft_isascii.c	\
+		ft_isprint.c	\
+		ft_toupper.c	\
+		ft_tolower.c	\
 		ft_strchr.c		\
-		ft_strrchr.c		\
-		ft_strncmp.c		\
-		ft_strlcpy.c		\
-		ft_strlcat.c		\
-		ft_strnstr.c		\
+		ft_strrchr.c	\
+		ft_strncmp.c	\
+		ft_strlcpy.c	\
+		ft_strlcat.c	\
+		ft_strnstr.c	\
 		ft_atoi.c		\
 		ft_calloc.c		\
 		ft_strdup.c		\
 		ft_substr.c		\
 		ft_strjoin.c 	\
-		ft_strtrim.c		\
+		ft_strtrim.c	\
 		ft_split.c		\
 		ft_itoa.c		\
-		ft_strmapi.c		\
+		ft_strmapi.c	\
 		ft_putchar_fd.c	\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
-		ft_putnbr_fd.c \
-		ft_striteri.c  \
+		ft_putnbr_fd.c 	\
+		ft_striteri.c  	\
 		get_next_line_bonus.c \
 		get_next_line_utils_bonus.c 
 
@@ -45,6 +45,9 @@ SRCSB =	ft_lstnew.c			\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
 		$(SRCS)
+
+PRINTF_DIR = ft_printf/
+PRINTF_LIB = libftprintf.a
 
 NAME = libft.a
 
@@ -66,10 +69,11 @@ $(OBJS_DIR)%.o : %.c libft.h
 	@echo "Compiling: $<"
 	@$(CC) $(CFLAGS) -c -I$(HEADER_PATH) $< -o $@
 
+
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
-	@make -C ./ft_printf
-	@cp ./ft_printf/libftprintf.a ./libft.a
+	@make -C $(PRINTF_DIR)
+	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
 	@echo "Libft Done !"
 
 all: $(NAME)
@@ -79,12 +83,12 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	@make fclean -C ./ft_printf
+	@make fclean -C $(PRINTF_DIR)
 
 re: fclean all
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_BONUS_PREFIXED)
 	@make -C ./ft_printf
-	@cp ./ft_printf/libftprintf.a ./libft.a
+	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
 	@echo "Libft Bonus Done !"
