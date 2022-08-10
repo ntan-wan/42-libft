@@ -32,8 +32,7 @@ SRCS = ft_memset.c		\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c 	\
 		ft_striteri.c  	\
-		get_next_line_bonus.c \
-		get_next_line_utils_bonus.c 
+		$(GET_NEXT_LINE_SRCS)
 
 SRCSB =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
@@ -48,6 +47,9 @@ SRCSB =	ft_lstnew.c			\
 
 PRINTF_DIR = ft_printf/
 PRINTF_LIB = libftprintf.a
+
+GET_NEXT_LINE_SRCS = get_next_line_bonus.c \
+					 get_next_line_utils_bonus.c
 
 NAME = libft.a
 
@@ -69,12 +71,11 @@ $(OBJS_DIR)%.o : %.c libft.h
 	@echo "Compiling: $<"
 	@$(CC) $(CFLAGS) -c -I$(HEADER_PATH) $< -o $@
 
-
 $(NAME): $(OBJECTS_PREFIXED)
-	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
+	@ar rcs $(NAME) $(OBJECTS_PREFIXED) 
 	@make -C $(PRINTF_DIR)
 	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
-	@echo "Libft Done !"
+	@echo "libft Done !"
 
 all: $(NAME)
 
@@ -89,6 +90,6 @@ re: fclean all
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_BONUS_PREFIXED)
-	@make -C ./ft_printf
+	@make -C $(PRINTF_DIR)
 	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
-	@echo "Libft Bonus Done !"
+	@echo "libft Bonus Done !"
