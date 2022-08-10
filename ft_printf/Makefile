@@ -1,13 +1,10 @@
 NAME = libftprintf.a
 
 CC = gcc
-
 CFLAGS = -Wall -Wextra -Werror
 
 HEADER_PATH = includes/
-
 SRCS_PATH = srcs/
-
 OBJS_PATH = $(SRCS_PATH)objs/
 
 SRCS = ft_printf.c \
@@ -30,7 +27,6 @@ SRCS = ft_printf.c \
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 
 SRCS_PREFIXED = $(addprefix $(SRCS_PATH), $(SRCS))
-
 OBJS_PREFIXED = $(addprefix $(OBJS_PATH), $(OBJS))
 
 LIBFT_DIR = ../

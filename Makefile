@@ -63,7 +63,6 @@ OBJSB = $(SRCSB:.c=.o)
 OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
 CC = gcc
-
 CFLAGS = -Wall -Wextra -Werror 
 
 #text color
