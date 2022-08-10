@@ -111,7 +111,7 @@ char	*get_next_line(int fd)
 	char		*temp;
 	char		*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 1024)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= 1024)
 		return (NULL);
 	temp = NULL;
 	line = NULL;
