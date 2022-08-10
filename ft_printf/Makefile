@@ -34,33 +34,37 @@ SRCS_PREFIXED = $(addprefix $(SRCS_PATH), $(SRCS))
 OBJS_PREFIXED = $(addprefix $(OBJS_PATH), $(OBJS))
 
 LIBFT_DIR = ../
-
 LIBFT_OBJS = $(LIBFT_DIR)objs/*.o
-
 LIB = libft.a
+
+#text color
+COLOR_OFF =\033[0m
+RED =\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+ORANGE=\033[38;5;214m
 
 all : $(NAME)
 
 $(NAME) : $(OBJS_PREFIXED)
 	@ar rcs $(NAME) $(OBJS_PREFIXED) $(LIBFT_OBJS)
-	@echo "\033[32mft_printf Done!"
+	@echo "$(GREEN)ft_printf Done!$(COLOR_OFF)"
 
 # $(LIB) :
 #	@make bonus -C $(LIBFT_DIR)
 
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c
 	@mkdir -p $(OBJS_PATH)
+	@echo "$(ORANGE)Compiling: $<$(COLOR_OFF)"
 	@$(CC) $(CFLAGS) -c -I$(HEADER_PATH) $< -o $@
 
 bonus : $(NAME)
 
 clean :
-	@rm -rf $(OBJS_PATH)
-	@echo "\033[31mremoved: obj files (libftprintft.a)"
+	rm -rf $(OBJS_PATH)
 
 fclean : clean
-	@rm -f $(NAME)
-	@echo "removed: libftprintf.a"
-	@echo "\033[32mcleaning all done!"
+	rm -f $(NAME)
+	@echo "$(GREEN)cleaning all done!"
 
 re : fclean all

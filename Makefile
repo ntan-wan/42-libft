@@ -66,25 +66,33 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror 
 
+#text color
+COLOR_OFF =\033[0m
+RED =\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+CYAN=\033[0;36m
+
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
+	@echo "$(YELLOW)Compiling: $<$(COLOR_OFF)"
 	@$(CC) $(CFLAGS) -c -I$(HEADER_PATH) $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_PREFIXED) 
 	@make -C $(PRINTF_DIR)
 	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
-	@echo "libft Done !"
+	@echo "$(GREEN)libft Done !$(COLOR_OFF)"
 
 all: $(NAME)
 
 clean:
 	rm -rf $(OBJS_DIR)
+	@make clean -C $(PRINTF_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	@make fclean -C $(PRINTF_DIR)
+	rm -f $(PRINTF_DIR)$(PRINTF_LIB)
 
 re: fclean all
 
@@ -92,4 +100,4 @@ bonus: $(OBJECTS_BONUS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_BONUS_PREFIXED)
 	@make -C $(PRINTF_DIR)
 	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
-	@echo "libft Bonus Done !"
+	@echo "$(GREEN)libft Bonus Done !$(COLOR_OFF)"
