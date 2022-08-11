@@ -32,7 +32,6 @@ SRCS = ft_memset.c		\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c 	\
 		ft_striteri.c  	\
-		$(GET_NEXT_LINE_SRCS)
 
 SRCSB =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
@@ -48,8 +47,11 @@ SRCSB =	ft_lstnew.c			\
 PRINTF_DIR = ft_printf/
 PRINTF_LIB = libftprintf.a
 
+GET_NEXT_LINE_DIR =  get_next_line/
 GET_NEXT_LINE_SRCS = get_next_line_bonus.c \
 					 get_next_line_utils_bonus.c
+GET_NEXT_LINE_OBJS = $(GET_NEXT_LINE_SRCS:.c=.o)
+GET_NEXT_LINE_OBJS_PREFIXED = $(addprefix $(OBJS_DIR), $(GET_NEXT_LINE_OBJS))
 
 NAME = libft.a
 
@@ -71,14 +73,19 @@ RED =\033[0;31m
 GREEN=\033[0;32m
 YELLOW=\033[0;33m
 CYAN=\033[0;36m
+ORANGE=\033[38;5;214m
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
 	@echo "$(YELLOW)Compiling: $<$(COLOR_OFF)"
 	@$(CC) $(CFLAGS) -c -I$(HEADER_PATH) $< -o $@
 
-$(NAME): $(OBJECTS_PREFIXED)
-	@ar rcs $(NAME) $(OBJECTS_PREFIXED) 
+$(OBJS_DIR)get_next_line%.o : $(GET_NEXT_LINE_DIR)get_next_line%.c
+	@echo "$(ORANGE)Compiling: $<$(COLOR_OFF)"
+	@$(CC) $(CFLAGS) -c -I$(GET_NEXT_LINE_DIR) $< -o $@
+
+$(NAME): $(OBJECTS_PREFIXED) $(GET_NEXT_LINE_OBJS_PREFIXED)
+	@ar rcs $(NAME) $(OBJECTS_PREFIXED) $(GET_NEXT_LINE_OBJS_PREFIXED)
 	@make -C $(PRINTF_DIR)
 	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
 	@echo "$(GREEN)libft Done !$(COLOR_OFF)"

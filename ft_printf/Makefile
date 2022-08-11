@@ -51,7 +51,7 @@ $(NAME) : $(OBJS_PREFIXED)
 
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c
 	@mkdir -p $(OBJS_PATH)
-	@echo "$(ORANGE)Compiling: $<$(COLOR_OFF)"
+	@echo "$(RED)Compiling: $<$(COLOR_OFF)"
 	@$(CC) $(CFLAGS) -c -I$(HEADER_PATH) $< -o $@
 
 bonus : $(NAME)
