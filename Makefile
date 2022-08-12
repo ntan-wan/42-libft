@@ -93,12 +93,15 @@ $(NAME): $(OBJECTS_PREFIXED) $(GET_NEXT_LINE_OBJS_PREFIXED)
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS_DIR)
+	@rm -rf $(OBJS_DIR)
+	@echo "$(RED)Removed : obj files (libft)"
 	@make clean -C $(PRINTF_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(PRINTF_DIR)$(PRINTF_LIB)
+	@rm -f $(NAME)
+	@echo "$(RED)Removed : libft.a$(COLOR_OFF)"
+	@rm -f $(PRINTF_DIR)$(PRINTF_LIB)
+	@echo "$(RED)Removed : libftprintf.a$(COLOR_OFF)" 
 
 re: fclean all
 

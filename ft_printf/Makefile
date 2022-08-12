@@ -57,10 +57,10 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c
 bonus : $(NAME)
 
 clean :
-	rm -rf $(OBJS_PATH)
+	@rm -rf $(OBJS_PATH)
+	@echo "$(RED)Removed : obj files (ft_printf)$(COLOR_OFF)"
 
 fclean : clean
-	rm -f $(NAME)
-	@echo "$(GREEN)cleaning all done!"
-
+	@rm -f $(NAME)
+	@echo "$(RED)Removed : $(NAME)$(COLOR_OFF)"
 re : fclean all
