@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:08:13 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/08/09 21:32:58 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:18:27 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 # define LIBFT_H
 
 # include <stddef.h>
-
 # include <stdlib.h>
-
 # include <unistd.h>
+
+# include "ft_printf/includes/ft_printf.h"
+# include "get_next_line/get_next_line_bonus.h"
 
 int		ft_isalpha(int c);
 
