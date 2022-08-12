@@ -105,7 +105,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(OBJECTS_BONUS_PREFIXED)
+bonus: $(OBJECTS_BONUS_PREFIXED) $(GET_NEXT_LINE_OBJS_PREFIXED)
 	@ar rcs $(NAME) $(OBJECTS_BONUS_PREFIXED)
 	@make -C $(PRINTF_DIR)
 	@cp $(PRINTF_DIR)$(PRINTF_LIB) $(NAME)
