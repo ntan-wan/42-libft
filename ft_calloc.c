@@ -6,11 +6,12 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:13:27 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/07/11 13:13:58 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/09/23 20:53:28 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
