@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:33:24 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/08/06 16:33:27 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:07:12 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ char	*join_strs(const char *str1, const char *str2)
 	return (str);
 }
 
-char	*ft_strdup(const char *str1)
+char	*t_strdup(const char *str1)
 {
 	char	*str2;
 	int		i;
 
 	if (!str1)
-		return (ft_strdup(""));
+		return (t_strdup(""));
 	i = 0;
 	while (str1[i])
 		i++;

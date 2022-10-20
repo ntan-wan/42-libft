@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:12:06 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/08/04 16:43:53 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:07:12 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	read_from_fd(int fd, char **storage, char **temp)
 			return ;
 		}
 		buffer[r] = '\0';
-		*temp = ft_strdup(*storage);
+		*temp = t_strdup(*storage);
 		free_strs(storage, 0, 0);
 		*storage = join_strs(*temp, buffer);
 		free_strs(temp, 0, 0);
@@ -97,7 +97,7 @@ char	*parse_line(char **storage, char **temp)
 {
 	char	*line;
 
-	*temp = ft_strdup(*storage);
+	*temp = t_strdup(*storage);
 	free_strs(storage, 0, 0);
 	*storage = get_after_newline(*temp);
 	line = get_before_newline(*temp);
