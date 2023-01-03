@@ -35,11 +35,11 @@ bonus : all
 
 clean :
 	@rm -rf $(OBJS_DIR)
-	@printf "$(RED)removed: objs files ($(NAME))\n"
+	@printf "$(RED)removed: objs files ($(NAME))$(COLOR_OFF)\n"
 
 fclean : clean
 	@ rm -rf $(NAME)
-	@printf "$(RED)removed: $(NAME)\n"
+	@printf "$(RED)removed: $(NAME)$(COLOR_OFF)\n"
 
 re : fclean all
 
