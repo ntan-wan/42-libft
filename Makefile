@@ -11,12 +11,13 @@ YELLOW=\033[0;33m
 CYAN=\033[0;36m
 ORANGE=\033[38;5;214m
 
-HEADER_DIR = $(shell find -name "includes" -type d)
+rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
+
+HEADER_DIR = $(call rwildcard,srcs/,includes)
 HEADER = $(addprefix "-I", $(HEADER_DIR))
 
 SRCS_DIR = srcs/
-DIRS = $(shell find srcs -type d)
-SRCS = $(wildcard $(foreach dir, $(DIRS), $(dir)/*.c))
+SRCS = $(call rwildcard,srcs/,*.c)
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:c=o))
 
